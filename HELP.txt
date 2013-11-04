@@ -1,4 +1,18 @@
-#установка vim-а - среды разработки для ruby on rails
+﻿#установка vim-а - среды разработки для ruby on rails
 git clone git://github.com/akitaonrails/vimfiles.git ~/.vim
 git submodule update --init
 
+
+
+--------------------------------------
+Проблемы с утсановкой gem mysql на Windows:
+
+Установить mysql connector:
+http://dev.mysql.com/downloads/connector/c/
+
+Взять от него mysqllib.dll и скопировать в ...\Ruby1.9.3\bin\
+
+Засунуть connector (содержмое) в "C:\connector-6.0.2\" и выполнить:
+gem install mysql2 --platform=ruby -- '--with-mysql-lib="C:\connector-6.0.2\lib" --with-mysql-include="C:\connector-6.0.2\include" --with-mysql-dir="C:\connector-6.0.2"'
+
+--------------------------------------
