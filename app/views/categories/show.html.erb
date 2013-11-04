@@ -1,5 +1,14 @@
 <p>
-  <strong>Name</strong>
-  <%= @category.Name %>
+  <strong>Title:</strong>
+  <%= @category.name %>
+</p>
+ 
+<p>
+  <strong>Id_from_db:</strong>
+  <%= @category.id %>
 </p>
 
+<p>
+  <strong>Show_next:</strong>
+  <%= link_to "link", categories_show_path(@category.id+1) %>
+</p>

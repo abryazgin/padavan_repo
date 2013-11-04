@@ -2,8 +2,7 @@ RorTest::Application.routes.draw do
   get "categories" => "categories#index"
   post "categories" => "categories#create"
   get "categories/new" => "categories#new"
-  get "categories/show/:id" => "categories#show"
-  post "categories/show/:id" => "categories#show"
+  get "categories/show/:id" => "categories#show", as: "categories_show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
