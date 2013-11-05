@@ -1,14 +1,14 @@
 RorTest::Application.routes.draw do
-  get "categories" => "categories#index"
-  post "categories" => "categories#create"
-  get "categories/new" => "categories#new"
-  get "categories/show/:id" => "categories#show", as: "categories_show"
-  get "categories/show/:id/products" => "products#index", as: "category_products"
+  root 'categories#index'
+  
+  resources :categories do 
+    resources :products
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root "categories#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
