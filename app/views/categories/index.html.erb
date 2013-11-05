@@ -1,0 +1,27 @@
+<h1>Категории:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, :controller => 'products', :action => 'index_cat', :id => category.id %></td>
+        <td><%= link_to image_tag('show.png'), category %></td>
+        <td><%= link_to image_tag('edit.png'), edit_category_path(category) %></td>
+        <td><%= link_to image_tag('destroy.png'), category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to image_tag("new.png"), new_category_path %>

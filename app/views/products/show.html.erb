@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Abbr:</strong>
+  <%= @product.abbr %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= link_to @product.category.name, @product.category if @product.name %>
+</p>
+
+<%= link_to image_tag("edit.png"), edit_product_path(@product) %> |
+<%= link_to image_tag("back.png"), products_path %>
