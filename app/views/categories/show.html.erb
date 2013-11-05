@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Название</strong><br>
+  <%= @category.name %>
+</p>
+
+<%= link_to image_tag('edit.png'), edit_category_path(@category) %> |
+<%= link_to image_tag('back.png'), categories_path %>
+

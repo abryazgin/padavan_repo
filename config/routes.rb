@@ -1,10 +1,9 @@
 RorTest::Application.routes.draw do
+  resources :categories 
+  resources :products 
+  get 'categories/:id/products' => 'products#index_cat'
   root 'categories#index'
   
-  resources :categories do 
-    resources :products
-  end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
