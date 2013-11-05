@@ -9,16 +9,13 @@ class CategoriesController < ApplicationController
     @category.save
     redirect_to action: :show, id: @category.id
   end
-    
-	def show
-	@category = Category.find(params[:id])
+  def show
+    @category = Category.find(params[:id])
   end
-  
   private
     def category_params
       params.require(:category).permit(:name)
     end
-	
   def new
   end
 
