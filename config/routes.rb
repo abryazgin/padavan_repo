@@ -1,4 +1,5 @@
 RorTest::Application.routes.draw do
+  devise_for :members
   resources :categories 
   resources :products 
   get 'categories/:id/products' => 'products#index_cat'
