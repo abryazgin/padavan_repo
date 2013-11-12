@@ -15,8 +15,10 @@
       <tr>
         <td><%= link_to category.name, :controller => 'products', :action => 'index_cat', :id => category.id %></td>
         <td><%= link_to image_tag('show.png'), category %></td>
-        <td><%= link_to image_tag('edit.png'), edit_category_path(category) %></td>
-        <td><%= link_to image_tag('destroy.png'), category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :manage, Category%>
+          <td><%= link_to image_tag('edit.png'), edit_category_path(category) %></td>
+          <td><%= link_to image_tag('destroy.png'), category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

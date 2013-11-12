@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131111175725) do
+ActiveRecord::Schema.define(version: 20131111213930) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20131111175725) do
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
 
+  create_table "members_roles", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members_roles", ["member_id"], name: "index_members_roles_on_member_id", using: :btree
+  add_index "members_roles", ["role_id"], name: "index_members_roles_on_role_id", using: :btree
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.string   "abbr"
@@ -48,5 +58,11 @@ ActiveRecord::Schema.define(version: 20131111175725) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
